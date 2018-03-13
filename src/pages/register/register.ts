@@ -9,7 +9,8 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 
 import { EmailValidator } from '../../validators/email';
 
-import { HomePage } from '../home/home';
+import { LoginPage } from '../login/login';
+
 import { Mess } from '../../models/model';
 
 
@@ -99,7 +100,7 @@ export class RegisterPage {
         this.authData.sendVerfication()
         .then( data => {
           this.authData.showBasicAlert('Registered successfully!', "Please verify your email id to use services.");        
-          this.nav.setRoot(HomePage);
+          this.nav.setRoot(LoginPage);
         })
         .catch( error => {
           this.authData.showBasicAlert("Registration Failed", error.message);

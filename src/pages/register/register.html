@@ -8,9 +8,8 @@
   
   <ion-content padding>
     <ion-list inset>
-      <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
-        
-        <ion-label stacked>Full Name</ion-label>
+      <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>        
+        <ion-label stacked>Owner Name</ion-label>
         <ion-item>
           <ion-input formControlName="fullName" type="text"></ion-input>
         </ion-item>
@@ -52,7 +51,7 @@
 
         <ion-label stacked>Address</ion-label>
         <ion-item>
-          <ion-input formControlName="address" type="text"></ion-input>
+          <ion-textarea formControlName="address" type="text"></ion-textarea>
         </ion-item>
         
         <ion-label stacked>City</ion-label>

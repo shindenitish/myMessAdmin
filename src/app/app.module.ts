@@ -3,13 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
+
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
-import { AuthProvider } from '../providers/auth/auth';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
-import { DatePipe } from '@angular/common';
-import { DatePicker } from '@ionic-native/date-picker';
+import { AuthProvider } from '../providers/auth/auth';
 
 //Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -30,7 +31,10 @@ const config = {
   declarations: [
     MyApp,
     HomePage,
-    RegisterPage
+    LoginPage,
+    RegisterPage,
+
+    ResetPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -44,13 +48,14 @@ const config = {
   entryComponents: [
     MyApp,
     HomePage,
-    RegisterPage
+    LoginPage,
+    RegisterPage,
+
+    ResetPasswordPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider,
-    DatePicker,
-    DatePipe
+    AuthProvider
   ]
 })
 export class AppModule {}

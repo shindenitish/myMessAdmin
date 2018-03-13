@@ -5,10 +5,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
+import { CreatePage } from '../pages/create/create';
 import { ProfilePage } from '../pages/profile/profile';
+import { ArchievePage } from '../pages/archieve/archieve';
+
+import { TabsPage } from '../pages/tabs/tabs';
+
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
-
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 import { AuthProvider } from '../providers/auth/auth';
@@ -31,12 +35,17 @@ const config = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    LoginPage,
-    ProfilePage,
-    RegisterPage,
 
-    ResetPasswordPage
+    HomePage,
+    CreatePage,
+    ProfilePage,
+    ArchievePage,
+
+    LoginPage,
+    RegisterPage,
+    ResetPasswordPage,
+    
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -49,12 +58,17 @@ const config = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    
     HomePage,
-    LoginPage,
+    CreatePage,
     ProfilePage,
+    ArchievePage,
+    
+    LoginPage,
     RegisterPage,
+    ResetPasswordPage,
 
-    ResetPasswordPage
+    TabsPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

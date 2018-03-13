@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
-import { ProfilePage } from '../pages/profile/profile';
 
 import { AuthProvider } from '../providers/auth/auth';
 
@@ -20,7 +19,7 @@ export class MyApp implements OnInit{
       if(user){
         if(user.emailVerified)
         {
-          this.rootPage = ProfilePage;
+          this.rootPage = TabsPage;
         }else{
           this.rootPage = LoginPage;  
         }

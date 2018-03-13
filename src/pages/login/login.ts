@@ -55,7 +55,7 @@ export class LoginPage {
         }
       }, error => {
         this.loading.dismiss().then(() => {
-          this.authProvider.showBasicAlert('Error', 'User does not exists!');        
+          this.authProvider.showBasicAlert('Error', error.message);        
         });
       });
   

@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
-
-import { NavController, Loading, AlertController, LoadingController, MenuController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { NavController, Loading, AlertController, LoadingController, MenuController } from 'ionic-angular';
 
 import { AuthProvider } from '../../providers/auth/auth';
-
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-
 import { EmailValidator } from '../../validators/email';
 
 import { LoginPage } from '../login/login';
 
 import { Mess } from '../../models/model';
-
 
 @Component({
   selector: 'page-register',
@@ -32,18 +28,15 @@ export class RegisterPage {
     address: null
   };
 
-  appLogo: string="../../assets/imgs/appLogo.png";
-
   constructor(public nav: NavController,
-  public authData: AuthProvider, 
+  public authProvider: AuthProvider, 
   public formBuilder: FormBuilder, 
   public loadingCtrl: LoadingController, 
-  public alertCtrl: AlertController, 
   public menu: MenuController,
   private afs: AngularFirestore) {   
     
     this.menu = menu;
-    this.menu.enable(false, 'myMenu')
+    this.menu.enable(false, 'myMenu');
     
     this.signupForm = formBuilder.group({
       fullName: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.pattern('^[a-zA-Z\\s]*$')])],
@@ -60,12 +53,12 @@ export class RegisterPage {
     if (!this.signupForm.valid){
       console.log(this.signupForm.value);
     } else {
-      this.authData.registerUser(this.signupForm.value.email, this.signupForm.value.password)
+      this.authProvider.registerUser(this.signupForm.value.email, this.signupForm.value.password)
       .then((user) => {
         this.addUser(user);
       }, (error) => {
         this.loading.dismiss().then( () => {
-          this.authData.showBasicAlert('Registration failed!', error.message);        
+          this.authProvider.showBasicAlert('Registration failed!', error.message);        
         });
       });
 
@@ -92,29 +85,29 @@ export class RegisterPage {
     
     userRef.set(this.user)
     .then( data => {
-      this.authData.getUser().updateProfile({
+      this.authProvider.getUser().updateProfile({
         displayName: this.user.ownerName,
         photoURL: ""
       })
       .then( data=> {
-        this.authData.sendVerfication()
+        this.authProvider.sendVerfication()
         .then( data => {
-          this.authData.showBasicAlert('Registered successfully!', "Please verify your email id to use services.");        
           this.nav.setRoot(LoginPage);
+          this.authProvider.showBasicAlert('Registered successfully!', "Please verify your email id to use services.");        
         })
         .catch( error => {
-          this.authData.showBasicAlert("Registration Failed", error.message);
-          console.log("Registration Failed", error.message);
+          this.authProvider.showBasicAlert("Verification link sending Failed!", error.message);
+          console.log("Verification link sending Failed!", error.message);
         })
       })
       .catch( error =>{
-        this.authData.showBasicAlert("Registration Failed", error.message);
-        console.log("Registration Failed", error.message);
+        this.authProvider.showBasicAlert("Profile update failed!", error.message);
+        console.log("Profile update failed!", error.message);
       });
     })
     .catch( error => {
-      this.authData.showBasicAlert("Registration Failed", error.message);
-      console.log("Registration Failed", error.message);
+      this.authProvider.showBasicAlert("Database update Failed!", error.message);
+      console.log("Database update Failed!", error.message);
     });    
   }
 }

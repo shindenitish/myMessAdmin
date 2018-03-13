@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
+import { ProfilePage } from '../pages/profile/profile';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
@@ -32,6 +33,7 @@ const config = {
     MyApp,
     HomePage,
     LoginPage,
+    ProfilePage,
     RegisterPage,
 
     ResetPasswordPage
@@ -49,12 +51,13 @@ const config = {
     MyApp,
     HomePage,
     LoginPage,
+    ProfilePage,
     RegisterPage,
 
     ResetPasswordPage
   ],
   providers: [
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider
   ]
 })

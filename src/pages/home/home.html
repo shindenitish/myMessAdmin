@@ -12,27 +12,32 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <ion-card>
+  <ion-card *ngFor="let item of items | async">
     <ion-card-content>
       <ion-card-title>
-        Nine Inch Nails Live
+        Menu
       </ion-card-title>
       <p>
-        The most popular industrial group ever, and largely
-        responsible for bringing the music to a mass audience.
+        {{item.timeFrom | date: 'dd-MMM hh:mm'}} - {{item.timeTo | date: 'hh:mm a'}}<br/>
+        {{item.description}}
       </p>
     </ion-card-content>
-  </ion-card>   -->
-  <ul *ngFor="let item of items | async">      
-    <li>{{ item.menuId }}
-      <ul>        
-        <li>
-          {{ item.timeFrom }}
-        </li>
-        <li>
-          {{ item.timeTo }}
-        </li>
-      </ul>
-    </li>      
-  </ul>
+    <ion-row>
+      <ion-col>
+        <button ion-button clear small>
+            <div *ngIf="item.menuCategory==0">Breakfast</div>
+            <div *ngIf="item.menuCategory==1">Lunch</div>
+            <div *ngIf="item.menuCategory==2">Dinner</div>
+        </button>
+      </ion-col>
+
+      <ion-col></ion-col>
+      
+      <ion-col>
+        <button ion-button clear small>
+          <div>4 Reviews</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>  
 </ion-content>

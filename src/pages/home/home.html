@@ -13,12 +13,21 @@
 
 <ion-content padding>
   <ion-card *ngFor="let item of items | async">
+      <ion-row>
+          <ion-col></ion-col>
+          <ion-col>
+            <button ion-button clear small>
+                <div *ngIf="item.menuType">Veg</div>
+                <div *ngIf="!item.menuType">Non-Veg</div>
+            </button>
+          </ion-col>
+        </ion-row>
     <ion-card-content>
       <ion-card-title>
         Menu
       </ion-card-title>
       <p>
-        {{item.timeFrom | date: 'dd-MMM hh:mm'}} - {{item.timeTo | date: 'hh:mm a'}}<br/>
+        {{item.timeFrom | date: 'dd-MMMM ( hh:mm'}} - {{item.timeTo | date: 'hh:mm a )'}}<br/>
         {{item.description}}
       </p>
     </ion-card-content>
@@ -30,7 +39,6 @@
             <div *ngIf="item.menuCategory==2">Dinner</div>
         </button>
       </ion-col>
-
       <ion-col></ion-col>
       
       <ion-col>

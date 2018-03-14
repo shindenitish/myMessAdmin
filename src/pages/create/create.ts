@@ -52,7 +52,7 @@ export class CreatePage {
     } else {
       this.menu={
         menuId: this.afs.createId(),
-        menutype: this.menuForm.value.menuType,
+        menuType: this.menuForm.value.menuType,
         menuCategory: this.menuForm.value.menuCategory,
         timeFrom: new Date(this.menuForm.value.timeFrom),
         timeTo: new Date(this.menuForm.value.timeTo),

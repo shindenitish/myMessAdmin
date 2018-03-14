@@ -3,10 +3,9 @@ import { NavController } from 'ionic-angular';
 
 import { CreatePage } from '../create/create';
 
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection} from 'angularfire2/firestore';
-import firebase from 'firebase/app';
+import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
-import { Menu, Mess } from '../../models/model';
+import { Menu } from '../../models/model';
 import { AuthProvider } from '../../providers/auth/auth';
 import { Observable } from 'rxjs/Observable';
 
@@ -22,7 +21,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, 
   private authProvider:AuthProvider,
   private afs:AngularFirestore) {
-    const collRef: AngularFirestoreCollection<Menu> = this.afs.collection(`mess/${this.authProvider.getUser().uid}/menu`, ref => ref.where('timeFrom', '>=', new Date()));    
+    const collRef: AngularFirestoreCollection<Menu> = this.afs.collection(`mess/${this.authProvider.getUser().uid}/menu`, ref => ref.where('timeFrom', '>=', new Date(0, 0, 0, 0)).orderBy('timeFrom'));    
     this.items=collRef.valueChanges();
   } 
 

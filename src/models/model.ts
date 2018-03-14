@@ -9,3 +9,13 @@ export interface Mess {
         city: string
     }
 }
+
+export interface Menu {
+    menuId: string,
+    menutype: string,
+    menuCategory: string,
+    timeFrom: Date,
+    timeTo: Date,
+    description: string,
+    rate: number
+}

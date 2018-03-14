@@ -12,5 +12,27 @@
 </ion-header>
 
 <ion-content padding>
-  
+  <!-- <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        Nine Inch Nails Live
+      </ion-card-title>
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+  </ion-card>   -->
+  <ul *ngFor="let item of items | async">      
+    <li>{{ item.menuId }}
+      <ul>        
+        <li>
+          {{ item.timeFrom }}
+        </li>
+        <li>
+          {{ item.timeTo }}
+        </li>
+      </ul>
+    </li>      
+  </ul>
 </ion-content>

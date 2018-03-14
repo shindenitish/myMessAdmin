@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Menu } from '../../models/model';
 
 import { AuthProvider } from '../../providers/auth/auth';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore';
 
 @Component({
   selector: 'page-create',
@@ -37,23 +37,44 @@ export class CreatePage {
     console.log('ionViewDidLoad CreatePage');
   }
 
-  addMenu(){
+  ionViewCanEnter(){
+    if(this.authProvider.getUser() == null){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  addMenu(){    
     if(!this.menuForm.valid){
       console.log(this.menuForm.value);
     } else {
       this.menu={
-        menuId: '',
-        menutype: '',
-        menuCategory: '',
-        timeFrom: null,
-        timeTo: null,
-        description: '',
-        rate: null
+        menuId: this.afs.createId(),
+        menutype: this.menuForm.value.menuType,
+        menuCategory: this.menuForm.value.menuCategory,
+        timeFrom: new Date(this.menuForm.value.timeFrom),
+        timeTo: new Date(this.menuForm.value.timeTo),
+        description: this.menuForm.value.description,
+        rate: this.menuForm.value.rate
       };
 
-      const collRef: AngularFirestoreCollection<any> = this.afs.collection(`mess/${this.authProvider.getUser().uid}/menu`);
-      collRef.doc('')
-      const docRef: AngularFirestoreDocument<any>=this.afs.doc(collRef.ref.doc());
+      const docRef: AngularFirestoreDocument<any> = this.afs.doc(`mess/${this.authProvider.getUser().uid}/menu/${this.menu.menuId}`);
+        
+      docRef.set(this.menu)
+      .then( data => {
+        this.authProvider.showBasicAlert('Alert!', "Added successfully");        
+        this.menuForm.reset();
+        this.loading.dismiss();        
+      })
+      .catch( error => {
+        this.authProvider.showBasicAlert("Failed!", error.message);
+        this.menuForm.reset();
+        this.loading.dismiss();
+        console.log("Failed!", error.message);
+      });
+        
       this.loading = this.loadingCtrl.create({ dismissOnPageChange: true });
       this.loading.present();
     }

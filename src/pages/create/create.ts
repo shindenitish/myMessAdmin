@@ -6,12 +6,11 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'create.html',
 })
 export class CreatePage {
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePage');
   }
-
 }

@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list inset>
-    <form (submit)="addMenu()" novalidate>              
+  <ion-list>
+    <form (submit)="addMenu()" novalidate>             
       <ion-item>
         <ion-label stacked>Type</ion-label>          
         <ion-select>
@@ -21,23 +21,30 @@
           <ion-option value="1">Lunch</ion-option>
           <ion-option value="2">Dinner</ion-option>
         </ion-select>
-      </ion-item> 
-      <ion-list inset>              
-        <ion-item no-lines>
-          <ion-label stacked>Timing From</ion-label>
-          <ion-input type="datetime-local"></ion-input>  
-        </ion-item>
-        <ion-item no-lines>
-          <ion-label stacked>Timing To</ion-label>         
-          <ion-input type="datetime-local"></ion-input>  
-        </ion-item>
-        
-      </ion-list>          
-      <button margin-top ion-button block type="submit" >Add Menu</button>      
+      </ion-item>            
+
+      <ion-label class="label1" stacked>Timing From</ion-label>
+      <ion-item no-lines>
+        <ion-input type="datetime-local"></ion-input>  
+      </ion-item>
+
+      <ion-label class="label1" stacked>Timing To</ion-label>         
+      <ion-item no-lines>
+        <ion-input type="datetime-local"></ion-input>  
+      </ion-item>         
+
+      <ion-label class="label1" stacked>Description</ion-label>         
+      <ion-item no-lines>
+        <ion-textarea rows="1" fz-elastic></ion-textarea>  
+      </ion-item>
+
+      <ion-label class="label1" stacked>Rate</ion-label>         
+      <ion-item no-lines>
+        <ion-input type="number"></ion-input>    
+      </ion-item>       
+      <ion-list inset>
+        <button margin-top ion-button type="submit" >Add Menu</button>      
+      </ion-list>
     </form>
   </ion-list>
-<ion-label>Timing</ion-label>
-<ion-item no-lines>
-  <ion-input type="date"></ion-input>  
-</ion-item>
 </ion-content>

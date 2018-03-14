@@ -13,15 +13,6 @@
 
 <ion-content padding>
   <ion-card *ngFor="let item of items | async">
-      <ion-row>
-          <ion-col></ion-col>
-          <ion-col>
-            <button ion-button clear small>
-                <div *ngIf="item.menuType">Veg</div>
-                <div *ngIf="!item.menuType">Non-Veg</div>
-            </button>
-          </ion-col>
-        </ion-row>
     <ion-card-content>
       <ion-card-title>
         Menu
@@ -32,18 +23,24 @@
       </p>
     </ion-card-content>
     <ion-row>
-      <ion-col>
+        <ion-col col-1>
+            <button ion-button icon-only clear small>
+              <div style="width:20px; height:20px;">
+                <img *ngIf="item.menuType" src="assets/imgs/veg.png">
+                <img *ngIf="!item.menuType" src="assets/imgs/non-veg.png">
+              </div>
+            </button>
+          </ion-col>
+      <ion-col col-5>
         <button ion-button clear small>
             <div *ngIf="item.menuCategory==0">Breakfast</div>
             <div *ngIf="item.menuCategory==1">Lunch</div>
             <div *ngIf="item.menuCategory==2">Dinner</div>
         </button>
-      </ion-col>
-      <ion-col></ion-col>
-      
-      <ion-col>
+      </ion-col>      
+      <ion-col col-5>
         <button ion-button clear small>
-          <div>4 Reviews</div>
+          <div>1000 Reviews</div>
         </button>
       </ion-col>
     </ion-row>

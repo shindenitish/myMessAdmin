@@ -21,7 +21,9 @@ export class HomePage {
   constructor(public navCtrl: NavController, 
   private authProvider:AuthProvider,
   private afs:AngularFirestore) {
-    const collRef: AngularFirestoreCollection<Menu> = this.afs.collection(`mess/${this.authProvider.getUser().uid}/menu`, ref => ref.where('timeFrom', '>=', new Date(0, 0, 0, 0)).orderBy('timeFrom'));    
+    var d1= new Date();
+    d1.setHours(0, 0, 0, 0);
+    const collRef: AngularFirestoreCollection<Menu> = this.afs.collection(`mess/${this.authProvider.getUser().uid}/menu`, ref => ref.where('timeFrom', '>=', d1).orderBy('timeFrom'));    
     this.items=collRef.valueChanges();
   } 
 

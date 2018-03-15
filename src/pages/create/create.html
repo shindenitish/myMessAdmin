@@ -46,6 +46,14 @@
         Timing is required.
       </p>
 
+      <ion-label class="label1" stacked>Menu Name</ion-label>         
+      <ion-item no-lines>
+        <ion-input formControlName="menuName" type="text"></ion-input>    
+      </ion-item>       
+      <p *ngIf="!menuForm.controls.menuName.valid  && menuForm.controls.menuName.dirty">
+        Menu name is required.
+      </p>
+
       <ion-label class="label1" stacked>Description</ion-label>         
       <ion-item no-lines>
         <ion-textarea formControlName="description" fz-elastic></ion-textarea>  

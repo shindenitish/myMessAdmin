@@ -14,6 +14,7 @@ export interface Menu {
     menuId: string,
     menuType: boolean,
     menuCategory: string,
+    menuName: string,
     timeFrom: Date,
     timeTo: Date,
     description: string,

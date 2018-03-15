@@ -26,6 +26,7 @@ export class CreatePage {
     this.menuForm = formBuilder.group({
       menuType: ['', Validators.compose([Validators.required])],
       menuCategory: ['', Validators.compose([Validators.required])],
+      menuName: ['', Validators.compose([Validators.required])],
       timeFrom: ['', Validators.compose([Validators.required])],
       timeTo: ['', Validators.compose([Validators.required])],
       description: ['', Validators.compose([Validators.required])],
@@ -54,6 +55,7 @@ export class CreatePage {
         menuId: this.afs.createId(),
         menuType: this.menuForm.value.menuType,
         menuCategory: this.menuForm.value.menuCategory,
+        menuName: this.menuForm.value.menuName,
         timeFrom: new Date(this.menuForm.value.timeFrom),
         timeTo: new Date(this.menuForm.value.timeTo),
         description: this.menuForm.value.description,

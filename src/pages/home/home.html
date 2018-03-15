@@ -15,7 +15,7 @@
   <ion-card *ngFor="let item of items | async">
     <ion-card-content>
       <ion-card-title>
-        Menu
+        {{item.menuName}}
       </ion-card-title>
       <p>
         {{item.timeFrom | date: 'dd-MMMM ( hh:mm'}} - {{item.timeTo | date: 'hh:mm a )'}}<br/>

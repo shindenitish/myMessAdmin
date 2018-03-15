@@ -16,8 +16,7 @@ import { Observable } from 'rxjs/Observable';
 export class HomePage {
 
   items: Observable<Menu[]>;
-  rate=50;
-
+  
   constructor(public navCtrl: NavController, 
   private authProvider:AuthProvider,
   private afs:AngularFirestore) {

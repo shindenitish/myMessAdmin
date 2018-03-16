@@ -27,8 +27,8 @@
         <ion-col col-1>
             <button ion-button icon-only clear small>
               <div style="width:20px; height:20px;">
-                <img *ngIf="item.menuType" src="assets/imgs/veg.png">
-                <img *ngIf="!item.menuType" src="assets/imgs/non-veg.png">
+                <img *ngIf="item.menuType=='false'" src="assets/imgs/veg.png">
+                <img *ngIf="item.menuType=='true'" src="assets/imgs/non-veg.png">
               </div>
             </button>
           </ion-col>

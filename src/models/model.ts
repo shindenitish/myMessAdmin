@@ -12,7 +12,7 @@ export interface Mess {
 
 export interface Menu {
     menuId: string,
-    menuType: boolean,
+    menuType: string,
     menuCategory: string,
     menuName: string,
     timeFrom: Date,

@@ -59,7 +59,7 @@ export class CreatePage {
         timeFrom: new Date(this.menuForm.value.timeFrom),
         timeTo: new Date(this.menuForm.value.timeTo),
         description: this.menuForm.value.description,
-        rate: this.menuForm.value.rate
+        rate: parseFloat(this.menuForm.value.rate)
       };
 
       const docRef: AngularFirestoreDocument<any> = this.afs.doc(`mess/${this.authProvider.getUser().uid}/menu/${this.menu.menuId}`);

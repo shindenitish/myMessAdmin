@@ -34,7 +34,7 @@ export class ProfilePage {
   }
 
   ionViewCanEnter(){
-    if(this.authProvider.getUser() == null){
+    if(this.authProvider.getUser().uid == null){
       return false;
     }
     else{
@@ -58,8 +58,8 @@ export class ProfilePage {
         this.authProvider.showBasicAlert('Alert!', 'User data not found');        
       }
     },error => {
-        console.log("Error getting document:", error);
-        this.authProvider.showBasicAlert('Error', error.message);        
+        console.log(error);
+        //this.authProvider.showBasicAlert('Error', error.message);        
     });
   }
 
@@ -67,7 +67,7 @@ export class ProfilePage {
     this.authProvider.logoutUser().then( authData => {
       this.navCtrl.setRoot(LoginPage);
     }, error => {
-        this.authProvider.showBasicAlert('Error', error.message);        
+        console.log(error);        
     });
   }
 }

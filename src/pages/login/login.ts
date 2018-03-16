@@ -39,7 +39,7 @@ export class LoginPage {
   createAccount(){
     this.navCtrl.push(RegisterPage);
   }
-
+  
   loginUser(){
     if(!this.loginForm.valid){
       console.log(this.loginForm.value);

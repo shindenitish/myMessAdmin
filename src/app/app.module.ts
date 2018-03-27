@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { CreatePage } from '../pages/create/create';
 import { ProfilePage } from '../pages/profile/profile';
 import { ArchievePage } from '../pages/archieve/archieve';
+import { AddLocationPage } from '../pages/add-location/add-location';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -24,6 +25,8 @@ import { AuthProvider } from '../providers/auth/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+import { Geolocation } from '@ionic-native/geolocation';
 
 // Initialize Firebase
 const config = {
@@ -43,6 +46,7 @@ const config = {
     CreatePage,
     ProfilePage,
     ArchievePage,
+    AddLocationPage,
 
     LoginPage,
     RegisterPage,
@@ -68,6 +72,7 @@ const config = {
     CreatePage,
     ProfilePage,
     ArchievePage,
+    AddLocationPage,
     
     LoginPage,
     RegisterPage,
@@ -77,7 +82,8 @@ const config = {
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AuthProvider
+    AuthProvider,
+    Geolocation
   ]
 })
 export class AppModule {}

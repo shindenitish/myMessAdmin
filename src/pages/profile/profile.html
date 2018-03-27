@@ -1,8 +1,13 @@
 <ion-header>
   <ion-navbar>
     <ion-title >
-      myMessAdmin (Beta)
+      Profile
     </ion-title>
+    <ion-buttons *ngIf="flag" end>
+        <button ion-button icon-only (click)="addLocation()">
+            <ion-icon name="compass"></ion-icon>+
+        </button>
+      </ion-buttons> 
   </ion-navbar>
 </ion-header>
   

@@ -32,16 +32,16 @@
               </div>
             </button>
           </ion-col>
-      <ion-col col-5>
+      <ion-col col-7>
         <button ion-button clear small>
             <div *ngIf="item.menuCategory==0">Breakfast</div>
             <div *ngIf="item.menuCategory==1">Lunch</div>
             <div *ngIf="item.menuCategory==2">Dinner</div>
         </button>
       </ion-col>      
-      <ion-col col-5>
-        <button ion-button clear small>
-          <div>1000 Reviews</div>
+      <ion-col col-3>
+        <button (click)="viewReviews(item.menuId, item.menuName)" ion-button clear small>
+          <div>Reviews</div>
         </button>
       </ion-col>
     </ion-row>

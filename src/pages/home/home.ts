@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { CreatePage } from '../create/create';
+import { ReviewsPage } from '../reviews/reviews';
 
 import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
@@ -28,6 +29,10 @@ export class HomePage {
 
   openPage(){
     this.navCtrl.push(CreatePage);
+  }
+
+  viewReviews(menuId, menuName){
+    this.navCtrl.push(ReviewsPage, { menuId: menuId, menuName: menuName } );
   }
 
 }

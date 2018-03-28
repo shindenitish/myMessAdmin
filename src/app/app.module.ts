@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { CreatePage } from '../pages/create/create';
+import { ReviewsPage } from '../pages/reviews/reviews';
 import { ProfilePage } from '../pages/profile/profile';
 import { ArchievePage } from '../pages/archieve/archieve';
 import { AddLocationPage } from '../pages/add-location/add-location';
@@ -45,6 +46,7 @@ const config = {
     HomePage,
     CreatePage,
     ProfilePage,
+    ReviewsPage,
     ArchievePage,
     AddLocationPage,
 
@@ -71,6 +73,7 @@ const config = {
     HomePage,
     CreatePage,
     ProfilePage,
+    ReviewsPage,
     ArchievePage,
     AddLocationPage,
     

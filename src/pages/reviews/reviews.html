@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{navParams.get('menuName')}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list text-wrap *ngFor="let item of items | async">
+    <ion-item no-lines>
+      <ion-avatar text-center item-start>
+        <img src="assets/imgs/avatar.png">
+        <p>{{item.rating}}/10</p>
+      </ion-avatar>
+      <p text-justify>{{item.review}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
